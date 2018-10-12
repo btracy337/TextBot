@@ -29,10 +29,10 @@ public class Model
 		this.spookyList = spookyList;
 		this.responseList = responseList;
 	}
-	public String askname()
-	{
+	//public String askname()
+	//{
 		
-	}
+	//}
 	public String getcurrentUser()
 	{
 		return currentUser;
