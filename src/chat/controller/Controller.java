@@ -1,10 +1,11 @@
 package chat.controller;
 
 import javax.swing.JOptionPane;
-//import chat.model.Model;
+import chat.model.Model;
 
 public class Controller
 {
+	private Model simpleBot;
 	public void start()
 	{
 		boolean isDone = false;
@@ -17,11 +18,17 @@ public class Controller
 			}
 		}
 	}
+	public Controller()
+	{
+		simpleBot = new Model();
+	}
+	
 
 
 	public String interactWithChatbot(String botText)
 	{
-		String something = "";
-		return something;
+		String chatbotSays = JOptionPane.showInputDialog(text);
+		chatbotSays = simpleBot.processText(userInput);
+		return chatbotSays;
 	}
 }

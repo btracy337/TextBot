@@ -33,7 +33,11 @@ public class Model
 		responseList.add("Maybe");
 		responseList.add("YASSSSSSSSSSSS!");
 		responseList.add("Goodbye-- No more talking.");
+		spookyList.add("Boo!!");
+		spookyList.add("Hey there little human. I am here to take over the human race...");
+		spookyList.add("Here's Johnny!!!");
 	}
+	
 	public Model(String currentUser, String joke, String content, ArrayList<String> spookyList, ArrayList<String> responseList)
 	{
 		this.currentUser = currentUser;
