@@ -1,10 +1,10 @@
 package chat.controller;
 
-public class Runner
+public class ChatRunner
 {
 public static void main (String args[])
 {
-	Controller app = new Controller();
+	ChatController app = new ChatController();
 	app.start();
 }
 }
