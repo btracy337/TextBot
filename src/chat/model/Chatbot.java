@@ -61,6 +61,10 @@ public class Chatbot
 	public String processText(String userText)
 	{
 		String output = "";
+		if(contentChecker(userText))
+		{
+			output += "You said the special words!";
+		}
 		output += "You said: " + userText; 
 		output += "Chatbot says: ";
 		return output;
@@ -96,15 +100,44 @@ public class Chatbot
 	{
 		this.content = content;
 	}
-	public boolean contentChecker (String inputContent)
+	public boolean contentChecker(String inputContent)
 	{
-		boolean checkedContent =  false;
-		return checkedContent;
+		boolean hasContent = false;
+
+		if (legitimacyChecker(inputContent) && inputContent.contains(content))
+		{
+			if (inputContent.equals(content))
+			{
+				hasContent = true;
+			}
+			else if (inputContent.contains(" " + content + " "))
+			{
+				hasContent = true;
+			}
+			else
+			{
+				hasContent = false;
+			}
+		}
+		return hasContent;
 	}
 	public boolean spookyChecker(String inputContent)
 	{
-		boolean checkedSpooky = false;
-		return checkedSpooky;
+		boolean isSpooky = false;
+		if (inputContent.contains("Halloween"))
+		{
+			isSpooky = true;
+		}
+		for (String phrase : spookyList)
+		{
+			if(inputContent.contains(phrase)) {
+				isSpooky = true;
+			}
+		}
+		if (inputContent.contains("Easter")) {
+			isSpooky = false;
+		}
+		return isSpooky;
 	}
 	// public String askname()
 	// {
