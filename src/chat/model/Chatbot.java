@@ -43,7 +43,7 @@ public class Chatbot
 		responseList.add("");
 		responseList.add("");
 		responseList.add("");
-		responseList.add("");
+		responseList.add("No u");
 		responseList.add("");
 		responseList.add("");
 		responseList.add("");
@@ -123,17 +123,20 @@ public class Chatbot
 	}
 	public boolean spookyChecker(String inputContent)
 	{
+		//Does user input contain the word Halloween? If so then isSpooky will return true.
 		boolean isSpooky = false;
 		if (inputContent.contains("Halloween"))
 		{
 			isSpooky = true;
 		}
+		//Tests if phrase that the user inputs contains a phrase from the spookyList array list.  If it has a phrase than isSpooky returns true. It structure has this thing in it.
 		for (String phrase : spookyList)
 		{
 			if(inputContent.contains(phrase)) {
 				isSpooky = true;
 			}
 		}
+		//Tests if the user input contains the word easter. If it does that isSpooky returns false.
 		if (inputContent.contains("Easter")) {
 			isSpooky = false;
 		}
