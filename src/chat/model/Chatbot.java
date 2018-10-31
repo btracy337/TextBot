@@ -51,12 +51,12 @@ public class Chatbot
 		spookyList.add("Halloween!!");
 		spookyList.add("Hey there little human. I am here to take over the human race...");
 		spookyList.add("Here's Johnny!!!");
-		spookyList.add("a");
-		spookyList.add("b");
-		spookyList.add("c");
-		spookyList.add("d");
-		spookyList.add("e");
-		spookyList.add("g");
+		spookyList.add("");
+		spookyList.add("");
+		spookyList.add("");
+		spookyList.add("");
+		spookyList.add("");
+		spookyList.add("");
 	}
 	public String processText(String userText)
 	{
