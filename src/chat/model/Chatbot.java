@@ -24,6 +24,7 @@ public class Chatbot
 		this.spookyList = new ArrayList<String>();
 		buildTheLists();
 	}
+
 	private void buildTheLists()
 	{
 		responseList.add("Hello! How are you?");
@@ -58,36 +59,42 @@ public class Chatbot
 		spookyList.add("");
 		spookyList.add("");
 	}
+
 	public String processText(String userText)
 	{
 		String output = "";
-		if(contentChecker(userText))
+		if (contentChecker(userText))
 		{
 			output += "You said the special words!";
 		}
-		output += "You said: " + userText; 
+		output += "You said: " + userText;
 		output += "Chatbot says: ";
 		return output;
 	}
+
 	public boolean legitimacyChecker(String input)
 	{
 		boolean isValid = true;
-		if(input == null) {
+		if (input == null)
+		{
 			isValid = false;
 		}
-		else if (input.length() < 2) {
+		else if (input.length() < 2)
+		{
 			isValid = false;
 		}
-		else if (input.equals("")) {
+		else if (input.equals(""))
+		{
 			isValid = false;
 		}
-		else if (input.contains("asdfghjkl")){
+		else if (input.contains("asdfghjkl"))
+		{
 			isValid = false;
 		}
 		return isValid;
-		
+
 	}
-	
+
 	public Chatbot(String currentUser, String joke, String content, ArrayList<String> spookyList, ArrayList<String> responseList)
 	{
 		this.currentUser = currentUser;
@@ -96,10 +103,12 @@ public class Chatbot
 		this.spookyList = spookyList;
 		this.responseList = responseList;
 	}
+
 	public Chatbot(String content)
 	{
 		this.content = content;
 	}
+
 	public boolean contentChecker(String inputContent)
 	{
 		boolean hasContent = false;
@@ -114,6 +123,14 @@ public class Chatbot
 			{
 				hasContent = true;
 			}
+			else if (inputContent.contains(" " + content))
+			{
+				hasContent = true;
+			}
+			else if (inputContent.contains(content + " "))
+			{
+				hasContent = true;
+			}
 			else
 			{
 				hasContent = false;
@@ -121,23 +138,30 @@ public class Chatbot
 		}
 		return hasContent;
 	}
+
 	public boolean spookyChecker(String inputContent)
 	{
-		//Does user input contain the word Halloween? If so then isSpooky will return true.
+		// Does user input contain the word Halloween? If so then isSpooky will return
+		// true.
 		boolean isSpooky = false;
 		if (inputContent.contains("Halloween"))
 		{
 			isSpooky = true;
 		}
-		//Tests if phrase that the user inputs contains a phrase from the spookyList array list.  If it has a phrase than isSpooky returns true. It structure has this thing in it.
+		// Tests if phrase that the user inputs contains a phrase from the spookyList
+		// array list. If it has a phrase than isSpooky returns true. It structure has
+		// this thing in it.
 		for (String phrase : spookyList)
 		{
-			if(inputContent.contains(phrase)) {
+			if (inputContent.contains(phrase))
+			{
 				isSpooky = true;
 			}
 		}
-		//Tests if the user input contains the word easter. If it does that isSpooky returns false.
-		if (inputContent.contains("Easter")) {
+		// Tests if the user input contains the word easter. If it does that isSpooky
+		// returns false.
+		if (inputContent.contains("Easter"))
+		{
 			isSpooky = false;
 		}
 		return isSpooky;
