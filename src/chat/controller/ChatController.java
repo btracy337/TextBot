@@ -18,6 +18,7 @@ public class ChatController
 				isDone = true;
 			}
 		}
+		
 	}
 
 	public ChatController()

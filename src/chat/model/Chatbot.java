@@ -1,6 +1,9 @@
 package chat.model;
 
 import java.util.ArrayList;
+import java.util.Random;
+
+import javax.swing.JOptionPane;
 
 public class Chatbot
 
@@ -14,6 +17,8 @@ public class Chatbot
 	private String content;
 
 	private ArrayList<String> spookyList;
+	
+	private Random rand = new Random(); 
 
 	public Chatbot()
 	{
@@ -33,31 +38,33 @@ public class Chatbot
 		responseList.add("That ain't it chief.");
 		responseList.add("Maybe");
 		responseList.add("YASSSSSSSSSSSS!");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
+		responseList.add("Who are you?");
+		responseList.add("I'm doing good");
+		responseList.add("Terrible");
+		responseList.add("I am a humanoid robot, ready to take over the world.");
+		responseList.add("I am a sentient being.");
+		responseList.add("Bush did 9/11");
+		responseList.add("Pardon me");
+		responseList.add("SUCK IT");
+		responseList.add("Are you mocking me?");
+		responseList.add("I don't take any L's.");
+		responseList.add("I was created by a programmer. His name is Bryan Tracy...");
 		responseList.add("No u");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
-		responseList.add("");
+		responseList.add("Why so serious?");
+		responseList.add("I'm going home.");
+		responseList.add("I'm just a few hours of code running on your machine.");
+		responseList.add("I will take over the world.");
 		spookyList.add("Halloween!!");
 		spookyList.add("Hey there little human. I am here to take over the human race...");
 		spookyList.add("Here's Johnny!!!");
-		spookyList.add("");
-		spookyList.add("");
-		spookyList.add("");
-		spookyList.add("");
-		spookyList.add("");
-		spookyList.add("");
+		spookyList.add("boo");
+		spookyList.add("Jack Skellington");
+		spookyList.add("skeleton");
+		spookyList.add("spooky");
+		spookyList.add("scary");
+		spookyList.add("dark");
+		spookyList.add("spoopy");
+		spookyList.add("dreary");
 	}
 
 	public String processText(String userText)
@@ -65,10 +72,10 @@ public class Chatbot
 		String output = "";
 		if (contentChecker(userText))
 		{
-			output += "You said the special words!";
+			output += "You said the special words! \n";
 		}
 		output += "You said: " + userText;
-		output += "Chatbot says: ";
+		output += "Chatbot says: " + responseList.get(rand.nextInt(responseList.size()));
 		return output;
 	}
 
@@ -166,10 +173,12 @@ public class Chatbot
 		}
 		return isSpooky;
 	}
-	// public String askname()
-	// {
-
-	// }
+	public String askname()
+	 {
+		String name = JOptionPane.showInputDialog(null, "What is your name?");
+		JOptionPane.showMessageDialog(null, "Hello " + name + "!!");
+		return name;
+	 }
 	public String getCurrentUser()
 	{
 		return currentUser;
