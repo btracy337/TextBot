@@ -9,9 +9,12 @@ public class ChatController
 
 	public void start()
 	{
+		
 		boolean isDone = false;
 		while (!isDone)
 		{
+			String userInput = JOptionPane.showInputDialog(null, "");
+			interactWithChatbot(userInput);
 			String quitter = JOptionPane.showInputDialog(null, "Type quit to exit the program.");
 			if (quitter.equalsIgnoreCase("quit"))
 			{

@@ -69,13 +69,14 @@ public class Chatbot
 
 	public String processText(String userText)
 	{
+		int randomIndex = (int)(Math.random() * responseList.size());
 		String output = "";
 		if (contentChecker(userText))
 		{
 			output += "You said the special words! \n";
 		}
 		output += "You said: " + userText;
-		output += "Chatbot says: " + responseList.get(rand.nextInt(responseList.size()));
+		output += "Chatbot says: " + responseList.get(randomIndex);
 		return output;
 	}
 
