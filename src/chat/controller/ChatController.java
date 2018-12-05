@@ -2,10 +2,11 @@ package chat.controller;
 
 import javax.swing.JOptionPane;
 import chat.model.Chatbot;
-
+import chat.view.ChatFrame;
 public class ChatController
 {
 	private Chatbot simpleBot;
+	private Chatbot frame;
 
 	public void start()
 	{
@@ -27,6 +28,7 @@ public class ChatController
 	public ChatController()
 	{
 		simpleBot = new Chatbot();
+		this.frame = frame;
 	}
 
 	public String interactWithChatbot(String userInput)
@@ -51,5 +53,9 @@ public class ChatController
 	{
 
 		this.simpleBot = simpleBot;
+	}
+	public Chatbot getFrame()
+	{
+		return this.frame;
 	}
 }
