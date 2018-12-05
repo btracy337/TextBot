@@ -7,28 +7,17 @@ public class ChatController
 {
 	private Chatbot simpleBot;
 	private Chatbot frame;
+	private ChatFrame appFrame;
+	
 
 	public void start()
-	{
-		
-		boolean isDone = false;
-		while (!isDone)
-		{
-			String userInput = JOptionPane.showInputDialog(null, "");
-			interactWithChatbot(userInput);
-			String quitter = JOptionPane.showInputDialog(null, "Type quit to exit the program.");
-			if (quitter.equalsIgnoreCase("quit"))
-			{
-				isDone = true;
-			}
-		}
-		
+	{			
 	}
 
 	public ChatController()
 	{
 		simpleBot = new Chatbot();
-		this.frame = frame;
+		appFrame = new ChatFrame(this);
 	}
 
 	public String interactWithChatbot(String userInput)

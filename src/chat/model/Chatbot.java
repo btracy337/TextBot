@@ -1,7 +1,6 @@
 package chat.model;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import javax.swing.JOptionPane;
 
@@ -18,7 +17,7 @@ public class Chatbot
 
 	private ArrayList<String> spookyList;
 	
-	private Random rand = new Random(); 
+	//private Random rand = new Random(); 
 
 	public Chatbot()
 	{
