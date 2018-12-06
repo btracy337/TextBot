@@ -74,8 +74,8 @@ public class Chatbot
 		{
 			output += "You said the special words! \n";
 		}
-		output += "You said: " + userText;
-		output += "Chatbot says: " + responseList.get(randomIndex);
+		output += "You said: " + userText + "\n";
+		output += "Chatbot says: " + responseList.get(randomIndex) +"\n";
 		return output;
 	}
 

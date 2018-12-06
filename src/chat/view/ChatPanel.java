@@ -1,6 +1,8 @@
 package chat.view;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -58,9 +60,9 @@ private void setupPanel()
 	this.add(loadButton);
 	this.add(checkerButton);
 	this.add(chatField);
-	chatArea = new JTextArea("Chat Area",20, 50);
+	chatArea = new JTextArea("",20, 50);
 
-	add(chatArea);
+	
 	
 	
 }
@@ -90,7 +92,18 @@ private void setupLayout()
 }
 private void setupListeners()
 {
-	
+	chatButton.addActionListener(new ActionListener()
+{
+		public void actionPerformed(ActionEvent click)
+		{
+			String userText = chatField.getText();
+			String response = "";
+			response = appController.interactWithChatbot(userText);
+			chatArea.append(response);
+			chatArea.setCaretPosition(chatArea.getDocument().getLength());
+			chatField.setText("");
+		}
+});
 	
 }
 private void setupScrollPane()
@@ -98,6 +111,7 @@ private void setupScrollPane()
 	chatArea.setEditable(false);
 	chatArea.setLineWrap(true);
 	chatArea.setWrapStyleWord(true);
+	chatPane.setViewportView(chatArea);
 	chatPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 }

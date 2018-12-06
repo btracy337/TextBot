@@ -22,7 +22,7 @@ public class ChatController
 
 	public String interactWithChatbot(String userInput)
 	{
-		String chatbotSays = JOptionPane.showInputDialog(null, "");
+		String chatbotSays =  "";
 		chatbotSays = simpleBot.processText(userInput);
 		return chatbotSays;
 	}
