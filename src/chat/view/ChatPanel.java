@@ -35,7 +35,7 @@ public class ChatPanel extends JPanel
 
 		checkerButton = new JButton("Check Text");
 
-		chatField = new JTextField("Talk to the bot Here", 50);
+		chatField = new JTextField("", 50);
 
 		chatPane = new JScrollPane();
 

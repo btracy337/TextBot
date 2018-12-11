@@ -20,6 +20,7 @@ public class IOController
 			String filename = path;
 			Calendar date = Calendar.getInstance();
 			filename += "/" + date.get(Calendar.MONTH) + " " + date.get(Calendar.DAY_OF_MONTH);
+			filename += " at" + date.get(Calendar.HOUR) + "-" + date.get(Calendar.MINUTE);
 			filename += " chatbot save.txt";
 			// This is a scanner that uses a while loop. Basically, it will copy the text
 			// from each line of the panel until there is no more lines of text.
