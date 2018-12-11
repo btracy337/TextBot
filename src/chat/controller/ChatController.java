@@ -47,4 +47,18 @@ public class ChatController
 	{
 		return this.frame;
 	}
+	public void handleErrors(Exception error)
+	{
+		JOptionPane.showMessageDialog(appFrame, error.getMessage());
+	}
+	public ChatFrame getAppFrame()
+	{
+		return appFrame;
+	}
+	private void close()
+	{
+		System.exit(0);
+	}
+
 }
+
