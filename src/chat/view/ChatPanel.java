@@ -17,9 +17,11 @@ public class ChatPanel extends JPanel
 	private JButton loadButton;
 	private JButton chatButton;
 	private JButton checkerButton;
+	private JButton quitButton;
 	private JTextField chatField;
 	private JTextArea chatArea;
 	private JScrollPane chatPane;
+	private final Action action = new SwingAction();
 
 	public ChatPanel(ChatController appController)
 	{
@@ -57,6 +59,10 @@ public class ChatPanel extends JPanel
 		this.add(checkerButton);
 		this.add(chatField);
 		chatArea = new JTextArea("", 20, 50);
+		
+		quitButton = new JButton("Quit");
+
+		add(quitButton);
 
 	}
 
@@ -83,6 +89,25 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, chatArea, -96, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, chatField, 33, SpringLayout.SOUTH, chatArea);
 		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 67, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, quitButton, 10, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, quitButton, -12, SpringLayout.NORTH, chatField);
+		appLayout.putConstraint(SpringLayout.EAST, quitButton, -676, SpringLayout.EAST, this);
+	}
+	private String getpath(String choice)
+	{
+		String path = ".";
+		int result = -99;
+		JFileChooser fileChooser = new JFileChooser();
+		if(choice.equals("save"))
+		{
+			fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			result = fileChooser.showSaveDialog(this);
+			if(result == JFileChooser.APPROVE_OPTION)
+			{
+				path = fileChooser.getCurrentDirectory().getAbsolutePath();
+			}	
+		}
+		return path;
 	}
 
 	private void setupListeners()
@@ -135,5 +160,13 @@ public class ChatPanel extends JPanel
 		chatPane.setViewportView(chatArea);
 		chatPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }
