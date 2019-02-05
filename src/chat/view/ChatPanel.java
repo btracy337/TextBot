@@ -58,7 +58,7 @@ public class ChatPanel extends JPanel
 		this.add(loadButton);
 		this.add(checkerButton);
 		this.add(chatField);
-		chatArea = new JTextArea("", 20, 50);
+		chatArea = new JTextArea("Hello there stranger! \n", 20, 50);
 		
 		quitButton = new JButton("Quit");
 
@@ -146,7 +146,15 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+			chatArea.setText(appController.useChatbotCheckers(chatField.getText()));
+			}
 
+		});
+		quitButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				System.exit(0);
 			}
 
 		});

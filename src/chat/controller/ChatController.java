@@ -3,15 +3,15 @@ package chat.controller;
 import javax.swing.JOptionPane;
 import chat.model.Chatbot;
 import chat.view.ChatFrame;
+
 public class ChatController
 {
 	private Chatbot simpleBot;
 	private Chatbot frame;
 	private ChatFrame appFrame;
-	
 
 	public void start()
-	{			
+	{
 	}
 
 	public ChatController()
@@ -22,15 +22,21 @@ public class ChatController
 
 	public String interactWithChatbot(String userInput)
 	{
-		String chatbotSays =  "";
+		String chatbotSays = "";
 		chatbotSays = simpleBot.processText(userInput);
 		return chatbotSays;
 	}
 
-	public String useChatbotCheckers(String ghjk)
+	public String useChatbotCheckers(String text)
 	{
-		String asdf = "Halloween";
-		return asdf;
+		if (simpleBot.contentChecker(text))
+		{
+			return "This content is valid.";
+		}
+		else
+		{
+			return "This content is invalid";
+		}
 	}
 
 	public Chatbot getChatbot()
@@ -43,22 +49,25 @@ public class ChatController
 
 		this.simpleBot = simpleBot;
 	}
+
 	public Chatbot getFrame()
 	{
 		return this.frame;
 	}
+
 	public void handleErrors(Exception error)
 	{
 		JOptionPane.showMessageDialog(appFrame, error.getMessage());
 	}
+
 	public ChatFrame getAppFrame()
 	{
 		return appFrame;
 	}
+
 	private void close()
 	{
 		System.exit(0);
 	}
 
 }
-
