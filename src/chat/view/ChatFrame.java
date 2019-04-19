@@ -20,8 +20,8 @@ public ChatFrame(ChatController appController)
 private void setupFrame()
 	{
 	this.setContentPane(myPanel);
-	this.setSize(800,600);
-	this.setTitle("Chatbot 2.0");
+	this.setSize(1024,768);
+	this.setTitle("Chatbot and Twitter 3.0");
 	this.setResizable(false);
 	this.setVisible(true);
 	}
